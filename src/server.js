@@ -2,13 +2,13 @@ const grpc = require('grpc')
 
 const defaultConfig = require('./config')
 
-const main = (args = {}) => {
-  const { host, port, service, package, path, actions } = Object.assign(
+const main = (actions, options = {}) => {
+  const { host, port, service, package, path } = Object.assign(
     {},
     defaultConfig,
-    args,
+    options,
   )
-
+  console.log({ path, package })
   const proto = grpc.load(path)[package]
   const server = new grpc.Server()
 

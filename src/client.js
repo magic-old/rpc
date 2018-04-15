@@ -7,11 +7,11 @@ const createCredentials = grpc => {
   return grpc.credentials.createInsecure()
 }
 
-const main = (args = {}) => {
+const main = (options = {}) => {
   const { host, port, service, package, path } = Object.assign(
     {},
     defaultConfig,
-    args,
+    options,
   )
 
   const proto = grpc.load(path)[package]
