@@ -1,0 +1,28 @@
+const grpc = require('grpc')
+
+const defaultConfig = require('./config')
+
+const createCredentials = grpc => {
+  // no secure for now
+  return grpc.credentials.createInsecure()
+}
+
+const main = (args = {}) => {
+  const { host, port, service, package, path } = Object.assign(
+    {},
+    defaultConfig,
+    args,
+  )
+
+  const proto = grpc.load(path)[package]
+
+  const url = `${host}:${port}`
+  console.log(`rpc client connecting to ${url}`)
+  const credentials = createCredentials(grpc)
+
+  const client = new proto[service](url, credentials)
+
+  return client
+}
+
+module.exports = main
