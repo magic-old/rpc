@@ -1,6 +1,7 @@
 {
   "name": "@magic/rpc",
   "version": "0.0.1",
+  "main": "./src/index.js",
   "scripts": {
     "start": "npm run format:check && nyc -a node test",
     "test": "npm run format:check && VERBOSE=true nyc -a node test",
