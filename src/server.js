@@ -2,13 +2,15 @@ const grpc = require('grpc')
 
 const defaultConfig = require('./config')
 
-const main = (actions, options = {}) => {
+const defaultActions = require('./actions')
+
+const main = (actions = defaultActions, options = {}) => {
   const { host, port, service, package, path } = Object.assign(
     {},
     defaultConfig,
     options,
   )
-  console.log({ path, package })
+
   const proto = grpc.load(path)[package]
   const server = new grpc.Server()
 
@@ -17,7 +19,7 @@ const main = (actions, options = {}) => {
   server.bind(url, grpc.ServerCredentials.createInsecure())
 
   server.start()
-  console.log('grpc service', service, 'listening on', url)
+  console.log('grpc', { service, package }, 'listening on', url)
   return server
 }
 
