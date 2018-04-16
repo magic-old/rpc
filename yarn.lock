@@ -2,24 +2,19 @@
 # yarn lockfile v1
 
 
-"@magic/lint@github:magic/lint":
-  version "0.0.1"
-  resolved "https://codeload.github.com/magic/lint/tar.gz/6c4e91845172889c9866d46fb9712fdc862433f6"
-  dependencies:
-    prettier "1.11.1"
-
 "@magic/log@github:magic/log":
   version "0.0.1"
-  resolved "https://codeload.github.com/magic/log/tar.gz/9d69e5838c3ecdfef2922f3c479427f84ef58920"
+  resolved "https://codeload.github.com/magic/log/tar.gz/182d1a4cdea4451e24e01bec9205e7a124d81373"
   dependencies:
     "@magic/types" "github:magic/types"
 
 "@magic/test@github:magic/test":
   version "0.0.1"
-  resolved "https://codeload.github.com/magic/test/tar.gz/3ebeeac2c4886c293642932280284ed54d7ed880"
+  resolved "https://codeload.github.com/magic/test/tar.gz/02467441b0becd7edac1b819b252ee3338f3e1b5"
   dependencies:
     "@magic/log" "github:magic/log"
     nyc "11.6.0"
+    prettier "1.11.1"
 
 "@magic/types@github:magic/types":
   version "0.0.1"
