@@ -1,9 +1,3 @@
-const { run } = require('@magic/test')
-
-const server = require('./server')
-
-const tests = {
-  server,
+module.exports = {
+  server: require('./server'),
 }
-
-run(tests)

@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "main": "./src/index.js",
   "scripts": {
-    "start": "npm run format:check && nyc -a node test",
-    "test": "npm run format:check && VERBOSE=true nyc -a node test",
+    "start": "NODE_ENV=production nyc -a test",
+    "test": "nyc -a test",
     "format": "format --write",
     "format:check": "format --list-different"
   },
@@ -13,7 +13,6 @@
   },
   "devDependencies": {
     "@magic/lint": "github:magic/lint",
-    "@magic/test": "github:magic/test",
-    "nyc": "11.6.0"
+    "@magic/test": "github:magic/test"
   }
 }

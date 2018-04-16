@@ -8,9 +8,22 @@
   dependencies:
     prettier "1.11.1"
 
+"@magic/log@github:magic/log":
+  version "0.0.1"
+  resolved "https://codeload.github.com/magic/log/tar.gz/9d69e5838c3ecdfef2922f3c479427f84ef58920"
+  dependencies:
+    "@magic/types" "github:magic/types"
+
 "@magic/test@github:magic/test":
   version "0.0.1"
-  resolved "https://codeload.github.com/magic/test/tar.gz/11474834c74d9d6494effe3752148beb45e2e521"
+  resolved "https://codeload.github.com/magic/test/tar.gz/3ebeeac2c4886c293642932280284ed54d7ed880"
+  dependencies:
+    "@magic/log" "github:magic/log"
+    nyc "11.6.0"
+
+"@magic/types@github:magic/types":
+  version "0.0.1"
+  resolved "https://codeload.github.com/magic/types/tar.gz/3b4b58e185e9a721e14101f408547ac013437541"
 
 abbrev@1:
   version "1.1.1"
@@ -118,12 +131,6 @@ assert-plus@1.0.0, assert-plus@^1.0.0:
 assign-symbols@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/assign-symbols/-/assign-symbols-1.0.0.tgz#59667f41fadd4f20ccbc2bb96b8d4f7f78ec0367"
-
-async@2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/async/-/async-2.6.0.tgz#61a29abb6fcc026fea77e56d1c6ec53a795951f4"
-  dependencies:
-    lodash "^4.14.0"
 
 async@^1.4.0:
   version "1.5.2"
@@ -806,10 +813,6 @@ globals@^9.18.0:
   version "9.18.0"
   resolved "https://registry.yarnpkg.com/globals/-/globals-9.18.0.tgz#aa3896b3e69b487f17e31ed2143d69a8e30c2d8a"
 
-google-protobuf@3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/google-protobuf/-/google-protobuf-3.5.0.tgz#b8cc63c74d83457bd8a9a904503c8efb26bca339"
-
 graceful-fs@^4.1.11, graceful-fs@^4.1.2:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
@@ -1240,7 +1243,7 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
-lodash@4.17.5, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.4:
+lodash@^4.15.0, lodash@^4.17.4:
   version "4.17.5"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
 
@@ -1357,7 +1360,7 @@ minimist@0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
 
-minimist@1.2.0, minimist@^1.2.0:
+minimist@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
 
