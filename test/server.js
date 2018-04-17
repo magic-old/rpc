@@ -19,23 +19,18 @@ const startServer = (port = 50051) => () => {
 
 const fns = [
   {
-    fn: () => new Promise(r => client().Hello({}, error => r(error))),
+    fn: promise(r => client().Hello({}, r)),
     before: startServer(),
-    expect: null,
+    expect: ({ message }) => message === 'Hello world',
   },
   {
-    fn: () =>
-      new Promise(r =>
-        client({ port: 232323 }).Hello({}, (error, data) => r(data)),
+    fn: promise(r => client({ port: 232323 }).Hello({}, r),
       ),
     before: startServer(232323),
     expect: ({ message }) => message === 'Hello world',
   },
   {
-    fn: () =>
-      new Promise(r =>
-        client({ port: 232324 }).Hello({}, (error, data) => r(data)),
-      ),
+    fn: promise(r => client({ port: 232324 }).Hello({}, r)),
     before: startServer(232324),
     expect: ({ message }) => message === 'Hello world',
   },
