@@ -9,7 +9,7 @@
     "format:check": "f"
   },
   "dependencies": {
-    "grpc": "1.10.1"
+    "grpc": "1.11.0-pre2"
   },
   "devDependencies": {
     "@magic/test": "github:magic/test"
