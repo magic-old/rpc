@@ -1,5 +1,7 @@
 const grpc = require('grpc')
 
+const log = require('@magic/log')
+
 const defaultConfig = require('./config')
 
 const defaultActions = require('./actions')
@@ -19,7 +21,7 @@ const main = (actions = defaultActions, options = {}) => {
   server.bind(url, grpc.ServerCredentials.createInsecure())
 
   server.start()
-  console.log('grpc', { service, package }, 'listening on', url)
+  log.info('grpc', { service, package }, 'listening on', url)
   return server
 }
 

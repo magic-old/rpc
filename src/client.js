@@ -1,5 +1,7 @@
 const grpc = require('grpc')
 
+const log = require('@magic/log')
+
 const defaultConfig = require('./config')
 
 const createCredentials = grpc => {
@@ -17,7 +19,7 @@ const main = (options = {}) => {
   const proto = grpc.load(path)[package]
 
   const url = `${host}:${port}`
-  console.log(`rpc client connecting to ${url}`)
+  log.info(`rpc client connecting to ${url}`)
   const credentials = createCredentials(grpc)
 
   const client = new proto[service](url, credentials)
