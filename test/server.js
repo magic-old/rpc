@@ -1,17 +1,13 @@
-const { promise } = require('@magic/test')
+const { promise, log } = require('@magic/test')
 
 const { client, server } = require('../src')
 
+const actions = require('../src/actions')
+
 const startServer = (port = 50051) => () => {
-  const actions = {
-    Hello: (call, cb) => {
-      const { user = 'world' } = call.request
-      cb(null, { message: `Hello ${user}` })
-    },
-  }
   const app = server(actions, { port })
 
-  console.log('server started on', { port })
+  log.info('server started on', { port })
   return () => {
     app.forceShutdown()
   }
@@ -21,18 +17,22 @@ const fns = [
   {
     fn: promise(r => client().Hello({}, r)),
     before: startServer(),
-    expect: ({ message }) => message === 'Hello world',
+    expect: ({ message }) => message === 'Hello, World',
   },
   {
-    fn: promise(r => client({ port: 232323 }).Hello({}, r),
-      ),
+    fn: promise(r => client({ port: 232323 }).Hello({}, r)),
     before: startServer(232323),
-    expect: ({ message }) => message === 'Hello world',
+    expect: ({ message }) => message === 'Hello, World',
   },
   {
     fn: promise(r => client({ port: 232324 }).Hello({}, r)),
     before: startServer(232324),
-    expect: ({ message }) => message === 'Hello world',
+    expect: ({ message }) => message === 'Hello, World',
+  },
+  {
+    fn: promise(r => client({ port: 232325 }).Hello({ name: 'Test' }, r)),
+    before: startServer(232325),
+    expect: ({ message }) => message === 'Hello, Test',
   },
 ]
 
