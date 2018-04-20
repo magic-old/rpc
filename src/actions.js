@@ -1,8 +1,10 @@
 const actions = {
-  Hello: (call = { request: {} }, cb) => {
-    const { user = 'World' } = call.request
+  Hello: (call = {}, cb) => {
+    const name = call.request && call.request.name || 'World'
 
-    cb(null, { message: `Hello, ${user}` })
+    const message = `Hello, ${name}`
+
+    cb(null, { message })
   },
 }
 
