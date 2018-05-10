@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@magic/log": "github:magic/log",
-    "grpc": "1.11.0-pre2"
+    "grpc": "1.11.3"
   },
   "devDependencies": {
     "@magic/test": "github:magic/test"
